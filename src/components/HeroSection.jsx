@@ -75,7 +75,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section ref={containerRef} className="relative md:h-screen h-[92vh] w-full overflow-hidden flex items-center justify-center">
       {/* Background Slider */}
       <div ref={bgRef} className="absolute inset-0 z-0 w-full h-full">
         <Swiper

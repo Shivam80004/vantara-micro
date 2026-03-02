@@ -77,7 +77,7 @@ export default function TimerSection({ targetDate }) {
           duration: 1,
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 80%',
+            start: 'top 90%',
           },
         }
       );
@@ -93,7 +93,7 @@ export default function TimerSection({ targetDate }) {
           ease: 'power3.out',
           scrollTrigger: {
             trigger: sectionRef.current,
-            start: 'top 70%',
+            start: 'top 83%',
           },
         }
       );
