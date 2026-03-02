@@ -12,7 +12,7 @@ export default function StayTuned() {
   useGSAPReveal(contentRef, { y: 50 });
 
   return (
-    <section ref={containerRef} className="relative py-32 md:py-48 px-6 overflow-hidden bg-primary text-light-100 flex flex-col items-center justify-center text-center">
+    <section ref={containerRef} id="contact" className="relative py-32 md:py-48 px-6 overflow-hidden bg-primary text-light-100 flex flex-col items-center justify-center text-center">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5 mix-blend-overlay pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary via-primary/90 to-dark-800 opacity-80" />

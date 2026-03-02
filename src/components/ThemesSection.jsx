@@ -1,8 +1,7 @@
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useGSAPReveal from '../hooks/useGSAPReveal';
-import featherStrip from '../assets/images/feather-strip.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,10 +63,23 @@ const themes = [
   }
 ];
 
-const ThemeCard = ({ theme }) => {
+const ThemeCard = ({ theme, index }) => {
+  const cardRef = useRef(null);
+  
+  // Simple fade-in reveal
+  useGSAPReveal(cardRef, { 
+    y: 30, 
+    delay: 0.1,
+    scrollTrigger: {
+      trigger: cardRef.current,
+      start: 'top 85%',
+    }
+  });
+
   return (
     <div 
-      className={`group relative ${theme.styles.bg} p-8 md:p-12 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden min-w-[300px] md:min-w-[400px] lg:min-w-[500px] md:h-[400px] h-[420px] flex flex-col border border-white/10 backdrop-blur-md`}
+      ref={cardRef}
+      className={`group relative ${theme.styles.bg} p-8 md:p-12 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden w-full h-[450px] flex flex-col border border-white/10 backdrop-blur-md`}
     >
       {/* Top Accent Line */}
       <div className={`absolute top-0 left-0 w-full h-1.5 ${theme.styles.accent} opacity-80`} />
@@ -78,7 +90,7 @@ const ThemeCard = ({ theme }) => {
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 rounded-full bg-white/5 blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700`} />
 
       <div className="relative z-10 flex flex-col h-full">
-        <h3 className={`text-2xl md:text-3xl font-brother-1816 ${theme.styles.text} mb-6 mt-4 font-medium leading-tight`}>
+        <h3 className={`text-xl md:text-2xl font-brother-1816 ${theme.styles.text} mb-6 mt-4 font-medium leading-tight`}>
           {theme.title}
         </h3>
         
@@ -87,117 +99,46 @@ const ThemeCard = ({ theme }) => {
         </p>
         
         <div className={`w-full h-px bg-white/20 mt-8 mb-6`} />
-        
-        {/* <div className={`flex items-center justify-between ${theme.styles.text}`}>
-          <span className="text-xs uppercase tracking-[0.2em] font-medium opacity-80">Learn More</span>
-          <span className="transform group-hover:translate-x-2 transition-transform duration-300 text-xl">→</span>
-        </div> */}
       </div>
     </div>
   );
 };
 
 export default function ThemesSection() {
-  const sectionRef = useRef(null);
-  const containerRef = useRef(null);
   const headerRef = useRef(null);
-  const featherRef = useRef(null);
 
-  // Header Reveal
   useGSAPReveal(headerRef, { y: 30 });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Feather Floating Animation
-      gsap.to(featherRef.current, {
-        y: -15,
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      // Horizontal Scroll Logic
-      const container = containerRef.current;
-      
-      ScrollTrigger.matchMedia({
-        // Desktop
-        "(min-width: 768px)": function() {
-          const scrollWidth = container.scrollWidth;
-          const viewportWidth = window.innerWidth;
-          
-          gsap.to(container, {
-            x: () => -(scrollWidth - viewportWidth + 100), // Scroll until end with some padding
-            ease: "none",
-            scrollTrigger: {
-              trigger: sectionRef.current,
-              pin: true,
-              scrub: 1,
-              start: "top top",
-              end: () => `+=${scrollWidth / 2}`, // Reduced scroll distance for faster speed
-              invalidateOnRefresh: true,
-              anticipatePin: 1,
-            }
-          });
-        },
-        // Mobile - no pin, vertical stack
-        "(max-width: 767px)": function() {
-          // Optional: Add simple fade up for mobile cards
-          gsap.utils.toArray(container.children).forEach((card, i) => {
-            gsap.fromTo(card,
-              { y: 50, opacity: 0 },
-              {
-                y: 0, 
-                opacity: 1,
-                scrollTrigger: {
-                  trigger: card,
-                  start: "top 85%",
-                }
-              }
-            );
-          });
-        }
-      });
-      
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="relative bg-[#FAF7F1] overflow-hidden" id="themes">
+    <section className="relative bg-[#FAF7F1] overflow-hidden" id="themes">
       {/* Section Header */}
-      <div className="pt-24 pb-12 md:pt-12 md:pb-16 px-6 md:px-20 max-w-[1920px] mx-auto text-center relative z-10">
+      <div className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-20 max-w-[1920px] mx-auto text-center relative z-10">
         <div ref={headerRef}>
           <span className="block font-gt-ultra text-[#CCBDA9] text-xs md:text-sm tracking-[0.2em] uppercase font-medium mb-4">
             Conference Themes
           </span>
-          <h2 className="text-xl md:text-5xl font-brother-1816 text-[#154D3D] mb-4">
+          <h2 className="text-2xl md:text-5xl font-brother-1816 text-[#154D3D] mb-4">
             Five Pillars Guiding the <br/>
             <span className="">Future of Avian Conservation</span>
           </h2>
         </div>
       </div>
 
-      {/* Feather Strip Visual */}
-      {/* <div className="absolute top-[25%] left-0 w-full pointer-events-none z-0 opacity-80 hidden md:block">
-        <img 
-          ref={featherRef}
-          src={featherStrip} 
-          alt="Decorative Feather Strip" 
-          className="w-full h-auto object-cover opacity-60"
-        />
-      </div> */}
-
-      {/* Horizontal Scroll Container */}
-      <div className="relative w-full pb-12 md:h-fit md:pb-0 flex items-center">
-        <div 
-          ref={containerRef}
-          className="flex flex-col md:flex-row gap-8 mb-20 px-6 md:px-20 md:w-max"
-        >
-          {themes.map((theme, index) => (
-            <ThemeCard key={index} theme={theme} />
+      {/* Grid Layout Container */}
+      <div className="max-w-[1920px] mx-auto px-6 md:px-20 pb-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+          {themes.slice(0, 3).map((theme, index) => (
+            <ThemeCard key={index} theme={theme} index={index} />
           ))}
+          
+          {/* Second row centered */}
+          <div className="lg:col-span-3 flex flex-col md:flex-row gap-8 justify-center w-full">
+            {themes.slice(3, 5).map((theme, index) => (
+              <div key={index + 3} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.33rem)]">
+                <ThemeCard theme={theme} index={index + 3} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

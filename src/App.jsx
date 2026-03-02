@@ -1,5 +1,6 @@
 import React from 'react';
 import useLenis from './hooks/useLenis';
+import Header from './components/Header';
 import HeroSection from './components/HeroSection';
 import BannerSection from './components/BannerSection';
 import TimerSection from './components/TimerSection';
@@ -19,6 +20,8 @@ function App() {
       
       {/* Grain Overlay */}
       <div className="grain-overlay fixed inset-0 pointer-events-none z-50 opacity-5 mix-blend-overlay"></div>
+      
+      <Header />
       
       <main className="relative z-10">
         <HeroSection />

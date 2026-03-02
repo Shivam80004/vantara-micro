@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useGSAPReveal from '../hooks/useGSAPReveal';
 import aboutBg from '../assets/images/about.bg.png';
+import aboutBgMobile from '../assets/images/about-banner-mobile.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,11 +24,14 @@ export default function AboutSection() {
     <section ref={containerRef} className="relative py-12 md:py-40 px-6 md:px-20 w-full overflow-hidden flex items-center justify-center md:min-h-screen" id="about">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src={aboutBg} 
-          alt="Birds Frame Background" 
-          className="w-full h-full object-cover object-center opacity-90"
-        />
+        <picture>
+          <source media="(max-width: 767px)" srcSet={aboutBgMobile} />
+          <img 
+            src={aboutBg} 
+            alt="Birds Frame Background" 
+            className="w-full h-full object-cover object-center opacity-90"
+          />
+        </picture>
         {/* Subtle overlay to ensure text readability if needed, though centered text should be clear */}
         <div className="absolute inset-0 bg-light-200/40 mix-blend-soft-light" />
       </div>
