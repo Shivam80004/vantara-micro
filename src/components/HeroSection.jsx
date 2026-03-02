@@ -1,14 +1,25 @@
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectFade, Autoplay } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/effect-fade';
+
 import heroVideoWeb from '../assets/videos/hero-video-web.mp4';
 import heroVideoMob from '../assets/videos/hero-video-mob.mp4';
+import heroBanner1 from '../assets/images/hero-banner-1.jpeg';
+import heroBanner1Mob from '../assets/images/hero-banner-1-mob.jpeg';
+import heroBanner2 from '../assets/images/hero-banner-2.jpeg';
+import heroBanner2Mob from '../assets/images/hero-banner-2-mob.jpeg';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const containerRef = useRef(null);
-  const videoRef = useRef(null);
+  const bgRef = useRef(null);
   const textRef = useRef(null);
   const scrollRef = useRef(null);
 
@@ -18,7 +29,7 @@ export default function HeroSection() {
       const tl = gsap.timeline();
 
       tl.fromTo(
-        videoRef.current,
+        bgRef.current,
         { scale: 1.2, opacity: 0 },
         { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
       )
@@ -36,7 +47,7 @@ export default function HeroSection() {
       );
 
       // Parallax Effect on Scroll
-      gsap.to(videoRef.current, {
+      gsap.to(bgRef.current, {
         yPercent: 20,
         ease: 'none',
         scrollTrigger: {
@@ -65,22 +76,65 @@ export default function HeroSection() {
 
   return (
     <section ref={containerRef} className="relative h-screen w-full overflow-hidden flex items-center justify-center">
-      {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
+      {/* Background Slider */}
+      <div ref={bgRef} className="absolute inset-0 z-0 w-full h-full">
+        <Swiper
+          modules={[EffectFade, Autoplay]}
+          effect="fade"
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          className="w-full h-full"
         >
-          <source src={heroVideoMob} type="video/mp4" media="(max-width: 767px)" />
-          <source src={heroVideoWeb} type="video/mp4" />
-        </video>
+          {/* Slide 1: Video */}
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+              >
+                <source src={heroVideoMob} type="video/mp4" media="(max-width: 767px)" />
+                <source src={heroVideoWeb} type="video/mp4" />
+              </video>
+            </div>
+          </SwiperSlide>
+
+          {/* Slide 2: Image 1 */}
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <picture>
+                <source media="(max-width: 767px)" srcSet={heroBanner1Mob} />
+                <img 
+                  src={heroBanner1} 
+                  alt="Vantara Hero Banner 1" 
+                  className="w-full h-full object-cover"
+                />
+              </picture>
+            </div>
+          </SwiperSlide>
+
+          {/* Slide 3: Image 2 */}
+          <SwiperSlide>
+            <div className="relative w-full h-full">
+              <picture>
+                <source media="(max-width: 767px)" srcSet={heroBanner2Mob} />
+                <img 
+                  src={heroBanner2} 
+                  alt="Vantara Hero Banner 2" 
+                  className="w-full h-full object-cover object-top"
+                />
+              </picture>
+            </div>
+          </SwiperSlide>
+        </Swiper>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 mix-blend-multiply" />
-        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 mix-blend-multiply pointer-events-none" />
+        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay pointer-events-none" />
       </div>
 
       {/* Content */}
