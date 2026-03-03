@@ -1,7 +1,6 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import useGSAPReveal from '../hooks/useGSAPReveal';
 import aboutBg from '../assets/images/about.bg.png';
 import aboutBgMobile from '../assets/images/about-banner-mobile.png';
 
@@ -10,20 +9,57 @@ gsap.registerPlugin(ScrollTrigger);
 export default function AboutSection() {
   const containerRef = useRef(null);
   const textRef = useRef(null);
+  const bgRef = useRef(null);
 
-  useGSAPReveal(textRef, {
-    y: 50,
-    stagger: 0.1,
-    scrollTrigger: {
-      trigger: containerRef.current,
-      start: 'top 70%',
-    }
-  });
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Background Parallax & Fade
+      gsap.fromTo(
+        bgRef.current,
+        { scale: 1.1, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1.5,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 85%",
+            end: "bottom top",
+            toggleActions: "play none none reverse",
+          }
+        }
+      );
+
+      // Text Stagger Animation
+      gsap.fromTo(
+        textRef.current.children,
+        { 
+          y: 30, 
+          opacity: 0 
+        },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section ref={containerRef} className="relative py-12 md:py-40 px-6 md:px-20 w-full overflow-hidden flex items-center justify-center md:min-h-screen" id="about">
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div ref={bgRef} className="absolute inset-0 z-0 opacity-0"> {/* Initial opacity 0 to prevent flash */}
         <picture>
           <source media="(max-width: 767px)" srcSet={aboutBgMobile} />
           <img
@@ -58,20 +94,7 @@ export default function AboutSection() {
               partnerships and equip professionals to safeguard avian species both under human care
               and in the wild.
             </p>
-            {/* <p>
-              The Vantara International Conference - <strong>Rewilding the Skies</strong> - is convened at this critical moment to foster a transformational global exchange that moves beyond theory to applied solutions for bird conservation and avian management. Rooted in India’s vibrant biodiversity and informed by the latest international science, this conference prioritizes hands-on learning, translational research, and collaborative problem-solving across core domains: husbandry, health and nutrition, conservation action, innovative science, and cross-border stewardship.
-            </p>
-            <p>
-              By bringing together veterinarians, aviculturists, ecologists, policymakers, and community leaders, Rewilding the Skies aims to reinvigorate how we care for birds both in captivity and in the wild, catalyze meaningful partnerships, and equip practitioners with the tools needed to safeguard avian futures. This conference is not just an event - it is a global imperative to restore ecological balance, enhance avian wellbeing, and empower a connected network of professionals dedicated to birds and their ecosystems.
-            </p> */}
           </div>
-
-          {/* <div className="flex justify-center pt-4">
-            <button className="group px-8 py-4 border border-primary rounded-full text-primary hover:bg-primary hover:text-light-100 transition-colors duration-300 flex items-center gap-4 uppercase tracking-widest text-sm bg-white/50 backdrop-blur-sm">
-              <span>Read Our Mission</span>
-              <span className="group-hover:translate-x-1 transition-transform duration-300">→</span>
-            </button>
-          </div> */}
         </div>
       </div>
     </section>

@@ -39,7 +39,7 @@ export default function HeroSection() {
 
       tl.fromTo(
         bgRef.current,
-        { scale: 1.2, opacity: 0 },
+        { scale: 1, opacity: 0 },
         { scale: 1, opacity: 1, duration: 2, ease: 'power2.out' }
       )
       .fromTo(
@@ -57,7 +57,7 @@ export default function HeroSection() {
 
       // Parallax Effect on Scroll
       gsap.to(bgRef.current, {
-        yPercent: 20,
+        yPercent: 5,
         ease: 'none',
         scrollTrigger: {
           trigger: containerRef.current,
@@ -68,7 +68,7 @@ export default function HeroSection() {
       });
 
       gsap.to(textRef.current, {
-        yPercent: -50,
+        yPercent: -5,
         opacity: 0,
         ease: 'none',
         scrollTrigger: {
@@ -84,7 +84,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={containerRef} className="relative md:h-screen h-[92vh] w-full overflow-hidden flex items-center justify-center">
+    <section ref={containerRef} className="relative md:h-screen h-[100vh] w-full overflow-hidden flex items-center justify-center">
       {/* Background Slider */}
       <div ref={bgRef} className="absolute inset-0 z-0 w-full h-full">
         <Swiper
@@ -136,7 +136,7 @@ export default function HeroSection() {
                   />
                 </picture>
               </div>
-              <div className="absolute top-[0%] right-[0%] h-[25vh] z-10 pointer-events-none hidden lg:block">
+              <div className="absolute top-[0%] right-[5%] h-[25vh] z-10 pointer-events-none hidden lg:block">
                 <img 
                   src={d1Overlay2} 
                   alt="Vantara Banner 1 Overlay" 
@@ -159,7 +159,7 @@ export default function HeroSection() {
                 />
               </picture>
               {/* Overlay */}
-              <div className="absolute top-[0%] right-[0%] lg:w-1/2 w-full lg:h-full z-10 pointer-events-none">
+              <div className="absolute bottom-[0%] right-[0%] lg:w-1/2 w-full lg:h-[70%] z-10 pointer-events-none">
                 <picture>
                   <source media="(max-width: 1024px)" srcSet={m2Overlay} />
                   <img 

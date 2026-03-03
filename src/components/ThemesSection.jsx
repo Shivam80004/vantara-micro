@@ -114,7 +114,7 @@ export default function ThemesSection() {
       {/* Section Header */}
       <div className="pt-24 pb-12 md:pt-32 md:pb-16 px-6 md:px-20 max-w-[1920px] mx-auto text-center relative z-10">
         <div ref={headerRef}>
-          <span className="block font-gt-ultra text-[#CCBDA9] text-xs md:text-sm tracking-[0.2em] uppercase font-medium mb-4">
+          <span className="block font-gt-ultra text-secondary text-xs md:text-sm tracking-[0.2em] uppercase font-medium mb-4">
             Conference Themes
           </span>
           <h2 className="text-2xl md:text-5xl font-brother-1816 text-[#154D3D] mb-4">

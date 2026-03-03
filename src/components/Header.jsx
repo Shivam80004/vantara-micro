@@ -37,46 +37,56 @@ export default function Header() {
         isScrolled ? 'py-4' : 'py-6'
       }`}
     >
-      <div className="max-w-[1920px] mx-auto px-6 md:px-12">
+      <div className="max-w-[43vw] mx-auto px-6 lg:px-12">
         <div 
           className={`relative flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
             isScrolled || isMenuOpen
-              ? 'bg-white/90 backdrop-blur-md border border-white/20 shadow-lg' 
-              : 'bg-transparent border border-transparent'
+              ? 'bg-black/20 backdrop-blur-md border border-transparent' 
+              : 'bg-black/20 backdrop-blur-md border border-transparent'
           }`}
         >
           {/* Logo */}
-          <a href="/" rel="noopener noreferrer" className="flex items-center z-50">
+          <a href="/" rel="noopener noreferrer" className="flex lg:hidden items-center z-50">
             <img 
               src={logo} 
               alt="Vantara Logo" 
-              className={`h-8 md:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? '' : 'brightness-0 invert'}`} 
+              className={`h-8 lg:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? '' : 'brightness-0 invert'}`} 
             />
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8">
             <button 
               onClick={() => scrollToSection('about')} 
-              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-primary hover:text-primary/80' : 'text-white/90 hover:text-white'}`}
+              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-white hover:text-white/80' : 'text-white/90 hover:text-white'}`}
             >
               About
             </button>
             <button 
               onClick={() => scrollToSection('themes')} 
-              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-primary hover:text-primary/80' : 'text-white/90 hover:text-white'}`}
+              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-white hover:text-white/80' : 'text-white/90 hover:text-white'}`}
             >
               Themes
+            </button>
+             {/* Logo */}
+          <a href="/" rel="noopener noreferrer" className=" items-center z-50 hidden lg:flex">
+            <img 
+              src={logo} 
+              alt="Vantara Logo" 
+              className={`h-8 lg:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? 'brightness-0 invert' : 'brightness-0 invert'}`} 
+            />
+          </a>
+          <button 
+              onClick={() => scrollToSection('contact')} 
+              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-white hover:text-white/80' : 'text-white/90 hover:text-white'}`}
+            >
+              Contact
             </button>
             <a 
               href="https://vantara.in" 
               target="_blank" 
               rel="noopener noreferrer"
-              className={`px-6 py-2 rounded-full text-sm uppercase tracking-widest font-medium transition-all duration-300 backdrop-blur-sm ${
-                isScrolled 
-                  ? 'bg-primary text-white hover:bg-primary/90' 
-                  : 'bg-white/10 text-white hover:bg-white/20 border border-white/30'
-              }`}
+              className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-white hover:text-white/80' : 'text-white/90 hover:text-white'}`}
             >
               Visit
             </a>
@@ -84,7 +94,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
-            className={`md:hidden p-2 z-50 transition-colors ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'}`}
+            className={`lg:hidden p-2 z-50 transition-colors ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -101,7 +111,7 @@ export default function Header() {
 
           {/* Mobile Menu Overlay */}
           <div 
-            className={`fixed py-12 w-full rounded-xl bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 md:hidden ${
+            className={`fixed py-12 w-full rounded-xl bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${
               isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
             style={{ top: 70, left: 0, height: 'fit-content' }}

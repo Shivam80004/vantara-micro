@@ -38,7 +38,7 @@ export default function StayTuned() {
       <div ref={contentRef} className="relative z-10 max-w-3xl mx-auto space-y-8">
         <h2 className="text-4xl md:text-6xl font-brother-1816 leading-tight">
           The Future of Flight <br />
-          <span className="text-secondary">Begins Here</span>
+          <span className="text-light-100">Begins Here</span>
         </h2>
         
         <p className="text-lg md:text-xl font-light text-light-300/80 leading-relaxed max-w-2xl mx-auto">
