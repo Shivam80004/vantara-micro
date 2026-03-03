@@ -46,7 +46,7 @@ export default function Header() {
           }`}
         >
           {/* Logo */}
-          <a href="https://vantara.in" target="_blank" rel="noopener noreferrer" className="flex items-center z-50">
+          <a href="/" rel="noopener noreferrer" className="flex items-center z-50">
             <img 
               src={logo} 
               alt="Vantara Logo" 
@@ -78,7 +78,7 @@ export default function Header() {
                   : 'bg-white/10 text-white hover:bg-white/20 border border-white/30'
               }`}
             >
-              Visit Vantara.in
+              Visit
             </a>
           </nav>
 

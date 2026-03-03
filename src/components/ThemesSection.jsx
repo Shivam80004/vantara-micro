@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 const themes = [
   {
     title: "Applied Avian Husbandry",
-    description: "Focus: Evidence-based husbandry practices, housing design, environmental enrichment, behavioural welfare, breeding management, and conditioning protocols that support long-term care, conservation breeding, and release readiness.",
+    description: "Focus: Evidence-based husbandry practices, housing design, environmental enrichment, behavioural welfare, breeding management, and training protocols that support long-term care, conservation breeding, and release readiness.",
     styles: {
       bg: "bg-[#154D3D]", // Deep Forest Green
       text: "text-[#F0FDF4]",
@@ -19,7 +19,7 @@ const themes = [
   },
   {
     title: "Applied Avian Health, Nutrition and Preventive Medicine",
-    description: "Focus: Preventive health planning, biosecurity, life-stage nutrition, clinical care, neonatal and hand-rearing protocols, diagnostics, and disease risk management relevant to both captive and wild-linked populations.",
+    description: "Focus: Preventive health planning, biosecurity, life-stage nutrition, clinical care, neonatal and hand-rearing protocols, diagnostics, and disease risk management relevant to both birds under human care and wild-linked populations.",
     styles: {
       bg: "bg-[#5D4E7B]", // Purple/Indigo
       text: "text-[#F3E8FF]",
@@ -29,8 +29,8 @@ const themes = [
     }
   },
   {
-    title: "Conservation in Action: Connecting Ex Situ and In Situ Avian Recovery",
-    description: "Focus: Species recovery planning, conservation breeding strategies, genetic and demographic management, rescue and rehabilitation as a conservation tool, release criteria, post-release monitoring, and integration with field conservation priorities.",
+    title: "Conservation in Action: Connecting Ex Situ and In Situ",
+    description: "Focus: Species recovery planning, conservation breeding strategies, genetic and demographic management, rescue and restorative care as a conservation tool, release criteria, post-release monitoring, and integration with field conservation priorities.",
     styles: {
       bg: "bg-[#1A3C5A]", // Deep Ocean Blue
       text: "text-[#E0F2FE]",

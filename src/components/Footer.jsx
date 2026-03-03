@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import useGSAPReveal from '../hooks/useGSAPReveal';
+import logo from '../assets/images/vantara-logo-1.png';
 
 export default function Footer() {
   const footerRef = useRef(null);
@@ -12,11 +13,13 @@ export default function Footer() {
         
         {/* Logo / Brand */}
         <div className="space-y-4">
-          <h3 className="text-2xl font-brother-1816 text-white tracking-wider">VANTARA</h3>
-          <p className="text-sm font-light text-light-500 max-w-xs">
+          <div className="w-40 h-20">
+            <img src={logo} alt="Vantara Logo" className="w-full h-full object-contain brightness-0 invert" />
+          </div>
+          {/* <p className="text-sm font-light text-light-500 max-w-xs">
             Rewilding the Skies. <br />
             An initiative for global avian conservation.
-          </p>
+          </p> */}
         </div>
 
         {/* Links */}
@@ -43,7 +46,7 @@ export default function Footer() {
       {/* Copyright */}
       <div className="max-w-[1920px] mx-auto mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-light-500 font-light">
         <p>© 2026 Vantara. All rights reserved.</p>
-        <p className="mt-2 md:mt-0 opacity-50">Designed with nature intelligence.</p>
+        {/* <p className="mt-2 md:mt-0 opacity-50">Designed with nature intelligence.</p> */}
       </div>
     </footer>
   );

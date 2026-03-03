@@ -42,17 +42,17 @@ export default function StayTuned() {
         </h2>
         
         <p className="text-lg md:text-xl font-light text-light-300/80 leading-relaxed max-w-2xl mx-auto">
-          Please stay in the air with us for more details, and please visit vantara.com to know more about us.
+          Please stay in the air with us for more details, and please visit vantara.in to know more about us.
         </p>
         
         <div className="pt-8">
           <a 
-            href="https://vantara.com" 
+            href="https://vantara.in" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block px-10 py-5 bg-secondary text-dark-800 font-medium tracking-widest uppercase text-sm rounded-full hover:bg-white hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-secondary/20"
           >
-            Visit Vantara.com
+            Visit Vantara.in
           </a>
         </div>
       </div>

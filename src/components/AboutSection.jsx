@@ -11,8 +11,8 @@ export default function AboutSection() {
   const containerRef = useRef(null);
   const textRef = useRef(null);
 
-  useGSAPReveal(textRef, { 
-    y: 50, 
+  useGSAPReveal(textRef, {
+    y: 50,
     stagger: 0.1,
     scrollTrigger: {
       trigger: containerRef.current,
@@ -26,9 +26,9 @@ export default function AboutSection() {
       <div className="absolute inset-0 z-0">
         <picture>
           <source media="(max-width: 767px)" srcSet={aboutBgMobile} />
-          <img 
-            src={aboutBg} 
-            alt="Birds Frame Background" 
+          <img
+            src={aboutBg}
+            alt="Birds Frame Background"
             className="w-full h-full object-cover object-center opacity-90"
           />
         </picture>
@@ -47,7 +47,16 @@ export default function AboutSection() {
           </h2>
           <div className="space-y-6 text-dark-500 text-[15px] leading-relaxed font-light">
             <p>
-              Birds are sentinels of planetary health - connecting ecosystems, cultures, and climates across the globe. Yet today, avian populations face increasing threats from habitat loss and degradation, climate change, emerging diseases, pollution, and disruptions to migratory pathways. These challenges demand more than academic dialogue; they require practical, interdisciplinary action that integrates captive breeding, ex-situ conservation efforts, veterinary expertise, and collaborative research to support both species recovery and ecosystem restoration.
+              Birds are vital indicators of planetary health, yet they face increasing threats
+              from habitat loss, climate change, disease, and ecosystem disruption. Addressing these
+              challenges requires collaborative, science-led action beyond traditional dialogue.
+            </p>
+            <p>
+              Vantara International Conference: Rewilding the Skies brings together global experts to drive
+              practical solutions in avian conservation and management. Focused on applied research,
+              conservation action, animal health, and innovation, the conference aims to strengthen
+              partnerships and equip professionals to safeguard avian species both under human care
+              and in the wild.
             </p>
             {/* <p>
               The Vantara International Conference - <strong>Rewilding the Skies</strong> - is convened at this critical moment to foster a transformational global exchange that moves beyond theory to applied solutions for bird conservation and avian management. Rooted in India’s vibrant biodiversity and informed by the latest international science, this conference prioritizes hands-on learning, translational research, and collaborative problem-solving across core domains: husbandry, health and nutrition, conservation action, innovative science, and cross-border stewardship.
@@ -56,7 +65,7 @@ export default function AboutSection() {
               By bringing together veterinarians, aviculturists, ecologists, policymakers, and community leaders, Rewilding the Skies aims to reinvigorate how we care for birds both in captivity and in the wild, catalyze meaningful partnerships, and equip practitioners with the tools needed to safeguard avian futures. This conference is not just an event - it is a global imperative to restore ecological balance, enhance avian wellbeing, and empower a connected network of professionals dedicated to birds and their ecosystems.
             </p> */}
           </div>
-          
+
           {/* <div className="flex justify-center pt-4">
             <button className="group px-8 py-4 border border-primary rounded-full text-primary hover:bg-primary hover:text-light-100 transition-colors duration-300 flex items-center gap-4 uppercase tracking-widest text-sm bg-white/50 backdrop-blur-sm">
               <span>Read Our Mission</span>
