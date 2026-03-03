@@ -10,10 +10,19 @@ import 'swiper/css/effect-fade';
 
 import heroVideoWeb from '../assets/videos/hero-video-web.mp4';
 import heroVideoMob from '../assets/videos/hero-video-mob.mp4';
-import heroBanner1 from '../assets/images/hero-banner-1.jpeg';
-import heroBanner1Mob from '../assets/images/hero-banner-1-mob.jpeg';
-import heroBanner2 from '../assets/images/hero-banner-2.jpeg';
-import heroBanner2Mob from '../assets/images/hero-banner-2-mob.jpeg';
+
+// Banner 1 Assets
+import d1Bg from '../assets/images/banners/d1-bg.jpeg';
+import d1Overlay from '../assets/images/banners/d1.png';
+import d1Overlay2 from '../assets/images/banners/d1-1.png';
+import m1Bg from '../assets/images/banners/m1-bg.jpeg';
+import m1Overlay from '../assets/images/banners/m1.png';
+
+// Banner 2 Assets
+import d2Bg from '../assets/images/banners/d2-bg.jpeg';
+import d2Overlay from '../assets/images/banners/d2.png';
+import m2Bg from '../assets/images/banners/m2-bg.jpeg';
+import m2Overlay from '../assets/images/banners/m2.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,64 +107,78 @@ export default function HeroSection() {
                 loop
                 playsInline
               >
-                <source src={heroVideoMob} type="video/mp4" media="(max-width: 767px)" />
+                <source src={heroVideoMob} type="video/mp4" media="(max-width: 1024px)" />
                 <source src={heroVideoWeb} type="video/mp4" />
               </video>
             </div>
           </SwiperSlide>
 
-          {/* Slide 2: Image 1 */}
+          {/* Slide 2: Banner 1 */}
           <SwiperSlide>
             <div className="relative w-full h-full">
+              {/* Background */}
               <picture>
-                <source media="(max-width: 767px)" srcSet={heroBanner1Mob} />
+                <source media="(max-width: 1024px)" srcSet={m1Bg} />
                 <img 
-                  src={heroBanner1} 
-                  alt="Vantara Hero Banner 1" 
+                  src={d1Bg} 
+                  alt="Vantara Banner 1 Background" 
                   className="w-full h-full object-cover"
                 />
               </picture>
+              {/* Overlay */}
+              <div className="absolute top-[0%] lg:left-[5%] h-vh w-full z-10 pointer-events-none">
+                <picture>
+                  <source media="(max-width: 1024px)" srcSet={m1Overlay} />
+                  <img 
+                    src={d1Overlay}  
+                    alt="Vantara Banner 1 Overlay" 
+                    className="lg:w-1/2 w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
+              <div className="absolute top-[0%] right-[0%] h-[25vh] z-10 pointer-events-none hidden lg:block">
+                <img 
+                  src={d1Overlay2} 
+                  alt="Vantara Banner 1 Overlay" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </SwiperSlide>
 
-          {/* Slide 3: Image 2 */}
+          {/* Slide 3: Banner 2 */}
           <SwiperSlide>
             <div className="relative w-full h-full">
+              {/* Background */}
               <picture>
-                <source media="(max-width: 767px)" srcSet={heroBanner2Mob} />
+                <source media="(max-width: 1024px)" srcSet={m2Bg} />
                 <img 
-                  src={heroBanner2} 
-                  alt="Vantara Hero Banner 2" 
-                  className="w-full h-full object-cover object-top"
+                  src={d2Bg} 
+                  alt="Vantara Banner 2 Background" 
+                  className="w-full h-full object-cover"
                 />
               </picture>
+              {/* Overlay */}
+              <div className="absolute top-[0%] right-[0%] lg:w-1/2 w-full lg:h-full z-10 pointer-events-none">
+                <picture>
+                  <source media="(max-width: 1024px)" srcSet={m2Overlay} />
+                  <img 
+                    src={d2Overlay} 
+                    alt="Vantara Banner 2 Overlay" 
+                    className="w-full h-full object-cover"
+                  />
+                </picture>
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-black/60 mix-blend-multiply pointer-events-none" />
-        <div className="absolute inset-0 bg-primary/20 mix-blend-overlay pointer-events-none" />
+        
       </div>
 
       {/* Content */}
-      <div ref={textRef} className="relative z-10 text-center text-light-100 px-4">
-        {/* <h2 className="font-gt-ultra text-lg md:text-xl font-sans tracking-[0.2em] uppercase mb-4 text-secondary/80">
-          Vantara International Conference
-        </h2>
-        <h1 className="text-5xl md:text-7xl lg:text-9xl font-brother-1816 font-light leading-tight tracking-tight mix-blend-overlay opacity-90">
-          Rewilding <br />
-          <span className="font-light text-secondary">the Skies</span>
-        </h1> */}
-        
-        {/* Floating Bird Silhouettes (CSS Animation or SVG) */}
- 
+      <div ref={textRef} className="relative z-30 text-center text-light-100 px-4">
+        {/* Content removed as per previous file state, but keeping the container for future use */}
       </div>
-
-      {/* Scroll Indicator */}
-      {/* <div ref={scrollRef} className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-light-300/60">
-        <span className="text-xs uppercase tracking-widest font-sans">Scroll</span>
-        <div className="w-[1px] h-12 bg-gradient-to-b from-light-300/0 via-light-300/50 to-light-300/0 animate-pulse" />
-      </div> */}
     </section>
   );
 }

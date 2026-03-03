@@ -32,11 +32,11 @@ export default function Footer() {
             Themes
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
-          <a href="#" className="hover:text-white transition-colors duration-300 relative group">
+          <a href="/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 relative group">
             Privacy Policy
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
-          <a href="#" className="hover:text-white transition-colors duration-300 relative group">
+          <a href="/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 relative group">
             Terms & Conditions 
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
