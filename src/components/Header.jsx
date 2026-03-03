@@ -96,7 +96,7 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button 
-            className={`lg:hidden p-2 z-50 transition-colors ${isScrolled || isMenuOpen ? 'text-primary' : 'text-white'}`}
+            className={`lg:hidden p-2 z-50 transition-colors ${isScrolled || isMenuOpen ? 'text-white' : 'text-white'}`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -110,37 +110,56 @@ export default function Header() {
               </svg>
             )}
           </button>
-
-          {/* Mobile Menu Overlay */}
-          <div 
-            className={`fixed py-12 w-full rounded-xl bg-black/20 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${
-              isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-            }`}
-            style={{ top: 70, left: 0, height: 'fit-content' }}
+        </div>
+        
+        {/* Mobile Menu Overlay */}
+        <div 
+          className={`fixed py-12 rounded-2xl z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${
+            isMenuOpen ? 'opacity-100 pointer-events-auto translate-y-0' : 'opacity-0 pointer-events-none -translate-y-4'
+          }`}
+          style={{ 
+            top: '70px', 
+            left: '50%',
+            transform: isMenuOpen ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(-20px)',
+            width: '90%',
+            maxWidth: '80%',
+            height: 'fit-content',
+            backdropFilter: 'blur(20px) saturate(180%)',
+            WebkitBackdropFilter: 'blur(20px) saturate(180%)',
+            backgroundColor: 'rgba(10, 10, 10, 0.25)',
+            border: '1px solid rgba(255, 255, 255, 0.1)',
+            boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)',
+          }}
+        >
+          <nav className="flex flex-col items-center gap-8">
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="text-xl font-brother-1816 text-white hover:text-white/80 transition-colors"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('themes')} 
+              className="text-xl font-brother-1816 text-white hover:text-white/80 transition-colors"
+            >
+              Themes
+            </button>
+            <a href="https://vantara.in/en/contact-us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xl font-brother-1816 text-white hover:text-white/80 transition-colors"
           >
-            <nav className="flex flex-col items-center gap-8">
-              <button 
-                onClick={() => scrollToSection('about')} 
-                className="text-2xl font-brother-1816 text-white hover:text-white/80 transition-colors"
-              >
-                About
-              </button>
-              <button 
-                onClick={() => scrollToSection('themes')} 
-                className="text-2xl font-brother-1816 text-white hover:text-white/80 transition-colors"
-              >
-                Themes
-              </button>
-              <a 
-                href="https://vantara.in" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="px-8 py-3 bg-primary text-white rounded-full text-lg font-medium hover:bg-primary/90 transition-colors mt-4 font-brother-1816"
-              >
-                Visit Vantara.in
-              </a>
-            </nav>
-          </div>
+            Contact
+          </a>
+            <a 
+              href="https://vantara.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-primary text-white rounded-full text-xl font-medium hover:bg-primary/90 transition-colors mt-4 font-brother-1816"
+            >
+              Visit
+            </a>
+          </nav>
         </div>
       </div>
     </header>
