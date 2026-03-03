@@ -79,7 +79,7 @@ const ThemeCard = ({ theme, index }) => {
   return (
     <div 
       ref={cardRef}
-      className={`group relative ${theme.styles.bg} p-8 md:p-12 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden w-full h-[450px] flex flex-col border border-white/10 backdrop-blur-md`}
+      className={`group relative ${theme.styles.bg} p-8 md:p-12 rounded-3xl transition-all duration-500 hover:-translate-y-2 overflow-hidden w-full md:h-[450px] h-[462px] flex flex-col border border-white/10 backdrop-blur-md`}
     >
       {/* Top Accent Line */}
       <div className={`absolute top-0 left-0 w-full h-1.5 ${theme.styles.accent} opacity-80`} />
