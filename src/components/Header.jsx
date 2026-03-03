@@ -37,7 +37,7 @@ export default function Header() {
         isScrolled ? 'py-4' : 'py-6'
       }`}
     >
-      <div className="max-w-[43vw] mx-auto px-6 lg:px-12">
+      <div className="lg:max-w-[50vw] lg:w-fit max-w-[90vw] mx-auto px-6 lg:px-12">
         <div 
           className={`relative flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
             isScrolled || isMenuOpen
@@ -50,7 +50,7 @@ export default function Header() {
             <img 
               src={logo} 
               alt="Vantara Logo" 
-              className={`h-8 lg:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? '' : 'brightness-0 invert'}`} 
+              className={`h-8 lg:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? 'brightness-0 invert' : 'brightness-0 invert'}`} 
             />
           </a>
 
@@ -111,7 +111,7 @@ export default function Header() {
 
           {/* Mobile Menu Overlay */}
           <div 
-            className={`fixed py-12 w-full rounded-xl bg-white/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${
+            className={`fixed py-12 w-full rounded-xl bg-black/20 backdrop-blur-xl z-40 flex flex-col items-center justify-center transition-all duration-500 lg:hidden ${
               isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
             }`}
             style={{ top: 70, left: 0, height: 'fit-content' }}
@@ -119,13 +119,13 @@ export default function Header() {
             <nav className="flex flex-col items-center gap-8">
               <button 
                 onClick={() => scrollToSection('about')} 
-                className="text-2xl font-brother-1816 text-primary hover:text-primary/80 transition-colors"
+                className="text-2xl font-brother-1816 text-white hover:text-white/80 transition-colors"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('themes')} 
-                className="text-2xl font-brother-1816 text-primary hover:text-primary/80 transition-colors"
+                className="text-2xl font-brother-1816 text-white hover:text-white/80 transition-colors"
               >
                 Themes
               </button>

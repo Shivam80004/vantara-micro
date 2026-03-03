@@ -73,7 +73,7 @@ export default function AboutSection() {
       </div>
 
       {/* Content Container - Centered */}
-      <div className="relative z-10 max-w-4xl mx-auto text-center bg-light-200/80 backdrop-blur-sm p-3 md:p-16 rounded-3xl shadow-sm border border-white/40">
+      <div className="relative z-10 lg:max-w-4xl xl:max-w-[55vw] max-w-full mx-auto text-center bg-light-200/80 backdrop-blur-sm p-3 md:p-16 rounded-3xl shadow-sm border border-white/40">
         <div ref={textRef} className="space-y-8">
           <span className="block font-gt-ultra text-secondary text-xs tracking-[0.2em] uppercase font-medium">
             About the Event
@@ -81,7 +81,7 @@ export default function AboutSection() {
           <h2 className="text-xl !mt-2 md:!mt-4 md:text-5xl font-brother-1816 text-primary leading-[1.1]">
             Conference <span className="text-primary">Overview</span>
           </h2>
-          <div className="space-y-6 text-dark-500 text-[15px] leading-relaxed font-light">
+          <div className="space-y-6 text-dark-500 text-[15px] xl:text-lg leading-relaxed font-light">
             <p>
               Birds are vital indicators of planetary health, yet they face increasing threats
               from habitat loss, climate change, disease, and ecosystem disruption. Addressing these
