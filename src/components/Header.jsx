@@ -39,7 +39,7 @@ export default function Header() {
     >
       <div className="lg:max-w-[50vw] lg:w-fit max-w-[90vw] mx-auto px-6 lg:px-12">
         <div 
-          className={`relative flex items-center justify-between rounded-full px-6 py-3 transition-all duration-300 ${
+          className={`relative flex items-center justify-between rounded-full px-6 py-0.5 transition-all duration-300 ${
             isScrolled || isMenuOpen
               ? 'bg-black/20 backdrop-blur-md border border-transparent' 
               : 'bg-black/20 backdrop-blur-md border border-transparent'
@@ -76,12 +76,14 @@ export default function Header() {
               className={`h-8 lg:h-14 scale-125 pl-3 w-auto object-contain transition-all duration-300 ${isScrolled || isMenuOpen ? 'brightness-0 invert' : 'brightness-0 invert'}`} 
             />
           </a>
-          <button 
-              onClick={() => scrollToSection('contact')} 
+          <a 
+              href="https://vantara.in/en/contact-us"
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-sm uppercase tracking-widest font-medium transition-colors ${isScrolled ? 'text-white hover:text-white/80' : 'text-white/90 hover:text-white'}`}
             >
               Contact
-            </button>
+            </a>
             <a 
               href="https://vantara.in" 
               target="_blank" 

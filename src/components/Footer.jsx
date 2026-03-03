@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="bg-dark-800 text-light-400 py-20 px-6 md:px-20 border-t border-white/5">
       <div ref={footerRef} className="max-w-[1920px] mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-12">
-        
+
         {/* Logo / Brand */}
         <div className="space-y-4">
           <div className="w-40 h-20">
@@ -24,7 +24,7 @@ export default function Footer() {
 
         {/* Links */}
         <div className="flex flex-wrap gap-8 md:gap-16 text-sm font-medium tracking-wide uppercase">
-           <a href="#about" className="hover:text-white transition-colors duration-300 relative group">
+          <a href="#about" className="hover:text-white transition-colors duration-300 relative group">
             About
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
@@ -32,12 +32,16 @@ export default function Footer() {
             Themes
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
+          <a href="https://vantara.in/en/contact-us" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 relative group">
+            Contact
+            <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
+          </a>
           <a href="/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 relative group">
             Privacy Policy
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
           <a href="/terms-and-conditions.pdf" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors duration-300 relative group">
-            Terms & Conditions 
+            Terms & Conditions
             <span className="absolute -bottom-1 left-0 w-0 h-px bg-secondary transition-all duration-300 group-hover:w-full" />
           </a>
         </div>

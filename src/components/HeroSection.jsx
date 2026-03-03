@@ -163,7 +163,7 @@ export default function HeroSection() {
                 />
               </picture>
               {/* Overlay */}
-              <div className="absolute top-[0%] lg:left-[5%] h-vh w-full z-10 pointer-events-none">
+              <div className="absolute top-[0%] lg:left-[5%] h-vh w-[80%] object-center z-10 pointer-events-none">
                 <picture>
                   <source media="(max-width: 1024px)" srcSet={m1Overlay} />
                   <img 
